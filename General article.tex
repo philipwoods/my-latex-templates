@@ -1,0 +1,95 @@
+% arara: pdflatex: { synctex: yes, options:  [ '-halt-on-error' ] }
+% arara: biber if exists(toFile('references.bib')) && exists('bcf')
+% arara: pdflatex: { synctex: yes } if exists('toc') || exists('bbl')
+% arara: pdflatex: { synctex: yes } while (found('log', '(?<!rerunfilecheck.{15,20})Rerun'))
+% arara: clean: { extensions: [ log, out, toc, aux, blg, bcf, bbl, run.xml ] }
+
+% Change font size by passing e.g. [12pt]
+\documentclass{article}
+
+%% You can comment out or remove packages as needed for this document.
+% General purpose typesetting
+\usepackage[margin=1in]{geometry} % Sets margins to a reasonable size
+\usepackage{titling}              % Increases title customizability
+\usepackage{amsmath}              % Vital when writing equations
+\usepackage{enumitem}             % Increases list customizability
+\usepackage{textcomp}             % Adds new characters and symbols
+\usepackage{textgreek}            % Use Greek characters outside math mode
+\usepackage{xcolor}               % Adds color definitions
+\usepackage[version=4]{mhchem}    % Simplifies chemical typesetting
+\usepackage{siunitx}              % Simplifies unit typesetting
+\DeclareSIUnit\molar{\mole\per\cubic\deci\metre}
+\DeclareSIUnit\Molar{\textsc{m}}
+\DeclareSIUnit\angstrom{\text {Å}}
+
+% Figure and image typesetting
+\usepackage{graphicx}             % Allows adding images
+\graphicspath{ {./images/} }      % Set base path to look for images
+\usepackage{wrapfig}              % Create figures wrapped by text
+\usepackage{subcaption}           % Allows creation of subfigures and subtables
+                                  % and customization of all captions
+% Bibliography and citations                                  
+\usepackage[%
+  url=false,
+  doi=true,
+  date=year,
+  isbn=false,
+  sorting=none,                   % Sort the bibliography by citation order
+  style=draft                     % Available styles include draft, science, nature
+]{biblatex}
+
+% Must be imported last
+\usepackage{hyperref}             % Allows internal and external hyperlinking
+
+\hypersetup{
+	hidelinks,
+	breaklinks=true,
+	pdfnewwindow=true
+}
+
+%% Uncomment if using biblatex
+%\addbibresource{references.bib}
+
+% Shift the title towards the 1-inch top margin of the page.
+\setlength{\droptitle}{-4.5em}
+
+% Create new commands to format like e.g. \section*{} while
+% also adding those sections to the table of contents. If you
+% want to customize what appears in the table of contents, see
+% the LaTeX cheat sheet for how to modify these definitions.
+\newcommand{\mysection}[1]{%
+	\refstepcounter{section}
+	\section*{#1}
+	\addcontentsline{toc}{section}{#1}
+}
+\newcommand{\mysubsection}[1]{%
+	\refstepcounter{subsection}
+	\subsection*{#1}
+	\addcontentsline{toc}{subsection}{#1}
+}
+
+%% Define title components
+% If no date is declared, it will default to the date of compilation.
+% To remove the author and/or date, uncomment all of the following commands.
+\title{TITLE}
+\author{YOU}
+%\date{}
+%\preauthor{}
+%\postauthor{}
+%\predate{}
+%\postdate{}
+
+\begin{document}
+
+\maketitle
+%\tableofcontents
+%\pagebreak
+
+DOCUMENT CONTENT HERE
+
+%% Uncomment if using biblatex
+% Adds all entries in references.bib to the bibliography
+%\nocite{*}
+%\printbibliography
+
+\end{document}
