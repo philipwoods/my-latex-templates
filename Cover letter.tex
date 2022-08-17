@@ -1,0 +1,73 @@
+% arara: pdflatex: { synctex: yes, options:  [ '-halt-on-error' ] }
+% arara: biber if exists(toFile('references.bib')) && exists('bcf')
+% arara: pdflatex: { synctex: yes } if exists('toc') || exists('bbl')
+% arara: pdflatex: { synctex: yes } while (found('log', '(?<!rerunfilecheck.{15,20})Rerun'))
+% arara: clean: { extensions: [ log, out, toc, aux, blg, bcf, bbl, run.xml ] }
+
+\documentclass[12pt]{letter}
+
+\usepackage[margin=1in]{geometry}
+\setlength{\longindentation}{0pt}
+
+% Some of the article customisations are relevant for this class
+
+\signature{% Goes after the closing (at the end of the letter, with space for a signature)
+	Name \\
+	Position or Role \\
+	Institution
+}
+\address{%
+	Address \\
+	of \\
+	Sender \\
+	Phone \\
+	Email
+}
+% Alternatively, these may be set on an individual basis within each letter environment.
+
+\begin{document}
+\begin{letter}{% Address the editor by name if you know it
+	Name of Receiver \\
+	Editor-in-Chief \\
+	Example Journal
+}
+
+\opening{Dear [EDITOR],} % eg Hello.
+
+% Include your manuscript's title and the name of the journal. If applicable,
+% specify the format (e.g. original research article, short communication, etc.).
+We wish to submit an original research article entitled [TITLE]
+for consideration by [EXAMPLE JOURNAL].
+
+% State that your paper has not been published and is not under consideration
+% at another journal.
+We confirm that this work is original and has not been published elsewhere, nor
+is it currently under consideration for publication elsewhere.
+
+% Briefly describe your research. Why is it important?
+% Why will readers find it interesting?
+In this paper, we find [MAIN RESULT]. This is significant because [IMPACT].
+
+Additional context e.g. why the work is appropriate to this journal.
+
+% Declare conflicts of interest, or confirm that there are none.
+We have no conflicts of interest to disclose.
+
+Please address all correspondence concerning this manuscript to [EMAIL].
+
+Thank you for your consideration of this manuscript.
+
+\closing{Sincerely,}
+
+% Include contact information for yourself and any co-authors.
+\ps{% Post-script can be used to list additional co-author information.
+	Co-Author \\
+	Dr. Friend \\
+	Position or Role \\
+	Institution \\
+	Phone \\
+	Email
+}
+
+\end{letter}
+\end{document}
