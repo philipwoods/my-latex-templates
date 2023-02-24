@@ -34,7 +34,7 @@
   doi=true,
   date=year,
   isbn=false,
-  sorting=none,                   % Sort the bibliography by citation order
+  sorting=none,                   % Sort by citation order (none) or attributes (nyt)
   style=draft                     % Available styles include draft, science, nature
 ]{biblatex}
 
@@ -42,8 +42,12 @@
 \usepackage{hyperref}             % Allows internal and external hyperlinking
 
 \hypersetup{
-	hidelinks,
-	breaklinks=true,
+	hidelinks,                % Links are formatted as normal text
+        %colorlinks=true,         % Link text is colored instead of boxed
+        %linkcolor=blue,          % Set color of internal document links
+        %urlcolor=cyan,           % Set color of links to URLs
+        %filecolor=magenta,       % Set color of links to external files
+	breaklinks=true,          % Allow links to cross line breaks
 	pdfnewwindow=true
 }
 
