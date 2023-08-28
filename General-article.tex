@@ -26,8 +26,18 @@
 \usepackage{graphicx}             % Allows adding images
 \graphicspath{ {./images/} }      % Set base path to look for images
 \usepackage{wrapfig}              % Create figures wrapped by text
-\usepackage{subcaption}           % Allows creation of subfigures and subtables
-                                  % and customization of all captions
+\usepackage{caption}              % Allows creation of subfigures and subtables
+\usepackage{subcaption}           % and customization of all captions
+\captionsetup[figure]{%
+  labelfont=bf,
+  labelsep=period
+}
+\captionsetup[table]{%
+  labelfont=bf,
+  labelsep=period
+}
+\renewcommand{\arraystretch}{1.3} % Increase table row spacing
+
 % Bibliography and citations                                  
 \usepackage[%
   url=false,
