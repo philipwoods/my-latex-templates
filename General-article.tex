@@ -48,6 +48,9 @@
   style=draft                     % Available styles include draft, science, nature
 ]{biblatex}
 
+%% Uncomment if using biblatex
+%\addbibresource{references.bib}
+
 % Must be imported last
 \usepackage{hyperref}             % Allows internal and external hyperlinking
 
@@ -62,12 +65,6 @@
 	breaklinks=true,          % Allow links to cross line breaks
 	pdfnewwindow=true
 }
-
-%% Uncomment if using biblatex
-%\addbibresource{references.bib}
-
-% Shift the title towards the 1-inch top margin of the page.
-\setlength{\droptitle}{-4.5em}
 
 % Create new commands to format like e.g. \section*{} while
 % also adding those sections to the table of contents. If you
@@ -85,15 +82,24 @@
 }
 
 %% Define title components
+% The values below show the default formatting for each component.
 % If no date is declared, it will default to the date of compilation.
-% To remove the author and/or date, uncomment all of the following commands.
+% To remove the author and/or date, uncomment the relevant pre- and post-
+% commands and remove their formatting, i.e. \postdate{}. The {center}
+% environments can be changed to {flushright} or {flushleft}.
+
+%\pretitle{\begin{center}\LARGE}
 \title{TITLE}
+%\posttitle{\par \end{center} \vskip 0.5em}
+%\preauthor{\begin{center} \large \lineskip 0.5em \begin{tabular}[t]{c}}
 \author{YOU}
+%\postauthor{\end{tabular} \par \end{center}}
+%\predate{\begin{center} \large}
 %\date{}
-%\preauthor{}
-%\postauthor{}
-%\predate{}
-%\postdate{}
+%\postdate{\par \end{center}}
+
+% Shift the title towards the 1-inch top margin of the page.
+\setlength{\droptitle}{-4.5em}
 
 \begin{document}
 
